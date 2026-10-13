@@ -1,0 +1,106 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNVUt0xDF4guWO13czGEIcs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/arvindn2006-a11y/FITBUDDY/blob/main/SECTION%20%20B\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yiM1d1kB0RVs",
+        "outputId": "cd3e2081-03c3-49ae-baaf-463bcc91ab09"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Customer Query: I was charged twice for my order.\n",
+            "\n",
+            "Zero-shot Output:\n",
+            "Please contact customer support to verify the duplicate charge.\n",
+            "\n",
+            "Few-shot Output:\n",
+            "Example: For a payment issue, contact customer support. Please contact customer support to verify the duplicate charge.\n",
+            "\n",
+            "Step-by-step Output:\n",
+            "Step 1: Check the transaction details. Step 2: Contact customer support for verification.\n",
+            "\n",
+            "Self-consistency Output:\n",
+            "Contact customer support to verify the duplicate charge.\n",
+            "\n",
+            "Prompt engineering workflow executed successfully!\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "\n",
+        "query = \"I was charged twice for my order.\"\n",
+        "\n",
+        "def zero_shot(query):\n",
+        "    return \"Please contact customer support to verify the duplicate charge.\"\n",
+        "\n",
+        "def few_shot(query):\n",
+        "    return \"Example: For a payment issue, contact customer support. \" \\\n",
+        "           \"Please contact customer support to verify the duplicate charge.\"\n",
+        "\n",
+        "\n",
+        "def step_by_step(query):\n",
+        "    return (\"Step 1: Check the transaction details. \"\n",
+        "            \"Step 2: Contact customer support for verification.\")\n",
+        "\n",
+        "\n",
+        "def self_consistency(query):\n",
+        "    responses = [\n",
+        "        \"Contact customer support to verify the duplicate charge.\",\n",
+        "        \"Share your transaction details with customer support.\",\n",
+        "        \"Ask customer support to check the payment.\"\n",
+        "    ]\n",
+        "    return responses[0]\n",
+        "\n",
+        "\n",
+        "print(\"Customer Query:\", query)\n",
+        "print(\"\\nZero-shot Output:\")\n",
+        "print(zero_shot(query))\n",
+        "\n",
+        "print(\"\\nFew-shot Output:\")\n",
+        "print(few_shot(query))\n",
+        "\n",
+        "print(\"\\nStep-by-step Output:\")\n",
+        "print(step_by_step(query))\n",
+        "\n",
+        "print(\"\\nSelf-consistency Output:\")\n",
+        "print(self_consistency(query))\n",
+        "\n",
+        "print(\"\\nPrompt engineering workflow executed successfully!\")\n"
+      ]
+    }
+  ]
+}
